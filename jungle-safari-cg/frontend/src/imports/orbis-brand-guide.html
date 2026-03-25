@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orbis Systems — Brand Logo Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --purple-50: #F5F3FF;
+    --purple-100: #EDE9FE;
+    --purple-200: #DDD6FE;
+    --purple-300: #C4B5FD;
+    --purple-400: #A78BFA;
+    --purple-500: #8B5CF6;
+    --purple-600: #7C3AED;
+    --purple-700: #6D28D9;
+    --purple-800: #5B21B6;
+    --purple-900: #4C1D95;
+    --dark: #0C0714;
+    --dark-surface: #150F22;
+    --gray-100: #F3F4F6;
+    --gray-200: #E5E7EB;
+    --gray-400: #9CA3AF;
+    --gray-500: #6B7280;
+    --gray-700: #374151;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #F8F7FC;
+    color: #1A1625;
+  }
+
+  /* ---- HEADER ---- */
+  .brand-header {
+    background: var(--dark);
+    padding: 60px 48px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .brand-header::before {
+    content: '';
+    position: absolute;
+    top: -120px;
+    right: -60px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .brand-header .top-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--purple-400);
+    margin-bottom: 12px;
+  }
+
+  .brand-header h1 {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 6px;
+  }
+
+  .brand-header h1 span { color: var(--purple-400); }
+
+  .brand-header p {
+    color: var(--gray-400);
+    font-size: 15px;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  /* ---- SECTION LAYOUT ---- */
+  .content {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 48px 32px 80px;
+  }
+
+  .section {
+    margin-bottom: 56px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--purple-600);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    color: #1A1625;
+  }
+
+  /* ---- LOGO DISPLAY CARDS ---- */
+  .logo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .logo-grid.three-col {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .logo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.04);
+  }
+
+  .logo-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 32px;
+    min-height: 200px;
+    position: relative;
+  }
+
+  .logo-display.bg-white { background: #FFFFFF; }
+  .logo-display.bg-light { background: var(--gray-100); }
+  .logo-display.bg-dark { background: var(--dark); }
+  .logo-display.bg-purple { background: var(--purple-600); }
+  .logo-display.bg-deep { background: var(--purple-900); }
+  .logo-display.bg-dark-surface { background: var(--dark-surface); }
+
+  .logo-display .bg-label {
+    position: absolute;
+    top: 12px;
+    left: 16px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 6px;
+  }
+
+  .logo-display.bg-white .bg-label,
+  .logo-display.bg-light .bg-label { color: var(--gray-400); background: var(--gray-100); }
+  .logo-display.bg-dark .bg-label,
+  .logo-display.bg-purple .bg-label,
+  .logo-display.bg-deep .bg-label,
+  .logo-display.bg-dark-surface .bg-label { color: rgba(255,255,255,0.45); background: rgba(255,255,255,0.08); }
+
+  .card-footer {
+    padding: 14px 18px;
+    background: white;
+    border-top: 1px solid var(--gray-100);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--gray-700);
+  }
+
+  /* ---- COLOR PALETTE ---- */
+  .palette-row {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .swatch {
+    width: 120px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+    background: white;
+  }
+
+  .swatch-color {
+    height: 72px;
+  }
+
+  .swatch-info {
+    padding: 10px 12px;
+  }
+
+  .swatch-info .name {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1A1625;
+    margin-bottom: 2px;
+  }
+
+  .swatch-info .hex {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-family: 'DM Sans', monospace;
+  }
+
+  /* ---- TYPOGRAPHY SPEC ---- */
+  .type-row {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .type-sample {
+    flex: 1;
+    min-width: 280px;
+    background: white;
+    border-radius: 14px;
+    padding: 28px;
+    border: 1px solid var(--gray-100);
+  }
+
+  .type-sample .demo {
+    margin-bottom: 16px;
+    line-height: 1.2;
+  }
+
+  .type-sample .meta {
+    font-size: 12px;
+    color: var(--gray-400);
+    line-height: 1.6;
+  }
+
+  /* ---- SPACING / CLEARSPACE ---- */
+  .clearspace-demo {
+    background: white;
+    border-radius: 16px;
+    border: 1px solid var(--gray-100);
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ---- ICON GRID ---- */
+  .icon-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .icon-card {
+    background: white;
+    border-radius: 14px;
+    border: 1px solid var(--gray-100);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 130px;
+    text-align: center;
+  }
+
+  .icon-card .label {
+    font-size: 11px;
+    color: var(--gray-400);
+    font-weight: 500;
+  }
+
+  /* ---- DONTS ---- */
+  .donts-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .dont-card {
+    background: white;
+    border-radius: 12px;
+    border: 1px solid var(--gray-100);
+    overflow: hidden;
+  }
+
+  .dont-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 16px;
+    min-height: 120px;
+    background: #FAFAFA;
+    position: relative;
+  }
+
+  .dont-display::after {
+    content: '✕';
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 14px;
+    color: #EF4444;
+    font-weight: 700;
+  }
+
+  .dont-card .desc {
+    padding: 10px 14px;
+    font-size: 11px;
+    color: var(--gray-500);
+    border-top: 1px solid var(--gray-100);
+    line-height: 1.4;
+  }
+
+  /* ---- DOWNLOAD SECTION ---- */
+  .download-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .dl-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .dl-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(124,58,237,0.2);
+  }
+
+  .dl-btn.primary {
+    background: var(--purple-600);
+    color: white;
+  }
+
+  .dl-btn.outline {
+    background: white;
+    color: var(--purple-700);
+    border: 1.5px solid var(--purple-200);
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="brand-header">
+  <div class="top-label">Brand Identity System</div>
+  <h1>Orbis Systems <span>— Logo Guide</span></h1>
+  <p>Concept E: Orbital Monogram. Complete brand mark system with usage guidelines, color palette, and all logo variations.</p>
+</div>
+
+<div class="content">
+
+  <!-- ===== PRIMARY LOGOS ===== -->
+  <div class="section">
+    <div class="section-label">01 — Primary Logo</div>
+    <div class="section-title">Full Logo — Horizontal Lockup</div>
+    <div class="logo-grid">
+      <!-- Light on white -->
+      <div class="logo-card">
+        <div class="logo-display bg-white">
+          <span class="bg-label">White</span>
+          <svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(40, 40)">
+              <circle cx="0" cy="0" r="26" stroke="#7C3AED" stroke-width="4.5" fill="none"/>
+              <path d="M-22,-18 A34,34 0 0,1 22,-18" stroke="url(#pL1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <circle cx="0" cy="0" r="4.5" fill="#7C3AED"/>
+            </g>
+            <text x="84" y="33" font-family="'Instrument Sans', sans-serif" font-weight="700" font-size="30" fill="#0C0714">ORBIS</text>
+            <text x="84" y="56" font-family="'DM Sans', sans-serif" font-weight="500" font-size="14" fill="#7C3AED" letter-spacing="0.22em">SYSTEMS</text>
+            <defs>
+              <linearGradient id="pL1" x1="-22" y1="-18" x2="22" y2="-18">
+                <stop offset="0%" stop-color="#A78BFA"/>
+                <stop offset="100%" stop-color="#6D28D9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="card-footer">Primary — Light background</div>
+      </div>
+
+      <!-- On dark -->
+      <div class="logo-card">
+        <div class="logo-display bg-dark">
+          <span class="bg-label">Dark</span>
+          <svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(40, 40)">
+              <circle cx="0" cy="0" r="26" stroke="#A78BFA" stroke-width="4.5" fill="none"/>
+              <path d="M-22,-18 A34,34 0 0,1 22,-18" stroke="url(#pD1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <circle cx="0" cy="0" r="4.5" fill="#A78BFA"/>
+            </g>
+            <text x="84" y="33" font-family="'Instrument Sans', sans-serif" font-weight="700" font-size="30" fill="#FFFFFF">ORBIS</text>
+            <text x="84" y="56" font-family="'DM Sans', sans-serif" font-weight="500" font-size="14" fill="#A78BFA" letter-spacing="0.22em">SYSTEMS</text>
+            <defs>
+              <linearGradient id="pD1" x1="-22" y1="-18" x2="22" y2="-18">
+                <stop offset="0%" stop-color="#C4B5FD"/>
+                <stop offset="100%" stop-color="#8B5CF6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="card-footer">Primary — Dark background</div>
+      </div>
+
+      <!-- On purple -->
+      <div class="logo-card">
+        <div class="logo-display bg-purple">
+          <span class="bg-label">Brand Purple</span>
+          <svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(40, 40)">
+              <circle cx="0" cy="0" r="26" stroke="white" stroke-width="4.5" fill="none" opacity="0.9"/>
+              <path d="M-22,-18 A34,34 0 0,1 22,-18" stroke="white" stroke-width="4" stroke-linecap="round" fill="none" opacity="0.55"/>
+              <circle cx="0" cy="0" r="4.5" fill="white" opacity="0.9"/>
+            </g>
+            <text x="84" y="33" font-family="'Instrument Sans', sans-serif" font-weight="700" font-size="30" fill="white">ORBIS</text>
+            <text x="84" y="56" font-family="'DM Sans', sans-serif" font-weight="500" font-size="14" fill="rgba(255,255,255,0.7)" letter-spacing="0.22em">SYSTEMS</text>
+          </svg>
+        </div>
+        <div class="card-footer">White variant — Purple background</div>
+      </div>
+
+      <!-- On light gray -->
+      <div class="logo-card">
+        <div class="logo-display bg-light">
+          <span class="bg-label">Light Gray</span>
+          <svg width="340" height="80" viewBox="0 0 340 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g transform="translate(40, 40)">
+              <circle cx="0" cy="0" r="26" stroke="#7C3AED" stroke-width="4.5" fill="none"/>
+              <path d="M-22,-18 A34,34 0 0,1 22,-18" stroke="url(#pG1)" stroke-width="4" stroke-linecap="round" fill="none"/>
+              <circle cx="0" cy="0" r="4.5" fill="#7C3AED"/>
+            </g>
+            <text x="84" y="33" font-family="'Instrument Sans', sans-serif" font-weight="700" font-size="30" fill="#0C0714">ORBIS</text>
+            <text x="84" y="56" font-family="'DM Sans', sans-serif" font-weight="500" font-size="14" fill="#7C3AED" letter-spacing="0.22em">SYSTEMS</text>
+            <defs>
+              <linearGradient id="pG1" x1="-22" y1="-18" x2="22" y2="-18">
+                <stop offset="0%" stop-color="#A78BFA"/>
+                <stop offset="100%" stop-color="#6D28D9"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="card-footer">Primary — Light gray surface</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== ICON MARKS ===== -->
+  <div class="section">
+    <div class="section-label">02 — Icon Mark</div>
+    <div class="section-title">Standalone Symbol & App Icons</div>
+    <div class="icon-row">
+      <!-- Standalone mark light -->
+      <div class="icon-card">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(32,32)"><circle r="22" stroke="#7C3AED" stroke-width="4" fill="none"/><path d="M-18,-15 A28,28 0 0,1 18,-15" stroke="url(#iL)" stroke-width="3.5" stroke-linecap="round" fill="none"/><circle r="4" fill="#7C3AED"/></g><defs><linearGradient id="iL" x1="-18" y1="-15" x2="18" y2="-15"><stop stop-color="#A78BFA"/><stop offset="1" stop-color="#6D28D9"/></linearGradient></defs></svg>
+        <span class="label">Mark — Light</span>
+      </div>
+      <!-- Standalone mark dark -->
+      <div class="icon-card" style="background:var(--dark);">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(32,32)"><circle r="22" stroke="#A78BFA" stroke-width="4" fill="none"/><path d="M-18,-15 A28,28 0 0,1 18,-15" stroke="url(#iD)" stroke-width="3.5" stroke-linecap="round" fill="none"/><circle r="4" fill="#A78BFA"/></g><defs><linearGradient id="iD" x1="-18" y1="-15" x2="18" y2="-15"><stop stop-color="#C4B5FD"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs></svg>
+        <span class="label" style="color:rgba(255,255,255,0.5);">Mark — Dark</span>
+      </div>
+      <!-- App icon filled -->
+      <div class="icon-card">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><rect width="64" height="64" rx="16" fill="url(#aF)"/><g transform="translate(32,32)"><circle r="17" stroke="white" stroke-width="3.2" fill="none"/><path d="M-14,-12 A22,22 0 0,1 14,-12" stroke="white" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.55"/><circle r="3.2" fill="white" opacity="0.85"/></g><defs><linearGradient id="aF" x1="0" y1="0" x2="64" y2="64"><stop stop-color="#8B5CF6"/><stop offset="1" stop-color="#4C1D95"/></linearGradient></defs></svg>
+        <span class="label">App Icon</span>
+      </div>
+      <!-- Favicon circle -->
+      <div class="icon-card">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="16" fill="url(#fC)"/><g transform="translate(16,16)"><circle r="9" stroke="white" stroke-width="2" fill="none"/><path d="M-7,-6 A12,12 0 0,1 7,-6" stroke="white" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.5"/><circle r="1.8" fill="white" opacity="0.85"/></g><defs><linearGradient id="fC" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#4C1D95"/></linearGradient></defs></svg>
+        <span class="label">Favicon 32px</span>
+      </div>
+      <!-- Favicon 16 -->
+      <div class="icon-card">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="8" fill="#7C3AED"/><circle cx="8" cy="8" r="4.5" stroke="white" stroke-width="1.5" fill="none"/><circle cx="8" cy="8" r="1.2" fill="white"/></svg>
+        <span class="label">Favicon 16px</span>
+      </div>
+      <!-- Monochrome -->
+      <div class="icon-card">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><g transform="translate(32,32)"><circle r="22" stroke="#1A1625" stroke-width="4" fill="none"/><path d="M-18,-15 A28,28 0 0,1 18,-15" stroke="#1A1625" stroke-width="3.5" stroke-linecap="round" fill="none" opacity="0.4"/><circle r="4" fill="#1A1625"/></g></svg>
+        <span class="label">Mono — Print</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== CLEAR SPACE ===== -->
+  <div class="section">
+    <div class="section-label">03 — Clear Space</div>
+    <div class="section-title">Minimum Breathing Room</div>
+    <div class="clearspace-demo">
+      <svg width="440" height="160" viewBox="0 0 440 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Clearspace guides -->
+        <rect x="60" y="20" width="320" height="120" stroke="#DDD6FE" stroke-width="1" stroke-dasharray="6 4" fill="none" rx="4"/>
+        <!-- X measurement marks -->
+        <text x="38" y="84" font-family="'DM Sans', sans-serif" font-size="11" fill="#A78BFA" font-weight="600" text-anchor="middle">X</text>
+        <line x1="60" y1="72" x2="60" y2="90" stroke="#A78BFA" stroke-width="1"/>
+        <line x1="48" y1="80" x2="60" y2="80" stroke="#A78BFA" stroke-width="1" stroke-dasharray="2 2"/>
+        <!-- Right X -->
+        <text x="402" y="84" font-family="'DM Sans', sans-serif" font-size="11" fill="#A78BFA" font-weight="600" text-anchor="middle">X</text>
+        <line x1="380" y1="72" x2="380" y2="90" stroke="#A78BFA" stroke-width="1"/>
+        <line x1="380" y1="80" x2="396" y2="80" stroke="#A78BFA" stroke-width="1" stroke-dasharray="2 2"/>
+        <!-- Top X -->
+        <text x="220" y="14" font-family="'DM Sans', sans-serif" font-size="11" fill="#A78BFA" font-weight="600" text-anchor="middle">X</text>
+        <!-- Bottom X -->
+        <text x="220" y="154" font-family="'DM Sans', sans-serif" font-size="11" fill="#A78BFA" font-weight="600" text-anchor="middle">X</text>
+
+        <!-- Logo centered -->
+        <g transform="translate(140, 80)">
+          <circle cx="0" cy="0" r="22" stroke="#7C3AED" stroke-width="4" fill="none"/>
+          <path d="M-18,-15 A28,28 0 0,1 18,-15" stroke="#A78BFA" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <circle cx="0" cy="0" r="4" fill="#7C3AED"/>
+        </g>
+        <text x="180" y="73" font-family="'Instrument Sans', sans-serif" font-weight="700" font-size="26" fill="#0C0714">ORBIS</text>
+        <text x="180" y="94" font-family="'DM Sans', sans-serif" font-weight="500" font-size="12" fill="#7C3AED" letter-spacing="0.22em">SYSTEMS</text>
+
+        <text x="220" y="130" font-family="'DM Sans', sans-serif" font-size="10" fill="#9CA3AF" text-anchor="middle">X = height of the "O" mark. Maintain X clearance on all sides.</text>
+      </svg>
+    </div>
+  </div>
+
+  <!-- ===== COLOR PALETTE ===== -->
+  <div class="section">
+    <div class="section-label">04 — Color Palette</div>
+    <div class="section-title">Brand Colors</div>
+    <div class="palette-row">
+      <div class="swatch">
+        <div class="swatch-color" style="background: #7C3AED;"></div>
+        <div class="swatch-info"><div class="name">Primary Purple</div><div class="hex">#7C3AED</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #6D28D9;"></div>
+        <div class="swatch-info"><div class="name">Deep Violet</div><div class="hex">#6D28D9</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #8B5CF6;"></div>
+        <div class="swatch-info"><div class="name">Bright Purple</div><div class="hex">#8B5CF6</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #A78BFA;"></div>
+        <div class="swatch-info"><div class="name">Soft Lavender</div><div class="hex">#A78BFA</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #4C1D95;"></div>
+        <div class="swatch-info"><div class="name">Dark Indigo</div><div class="hex">#4C1D95</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #0C0714;"></div>
+        <div class="swatch-info"><div class="name">Ink Black</div><div class="hex">#0C0714</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #F5F3FF;"></div>
+        <div class="swatch-info"><div class="name">Tint</div><div class="hex">#F5F3FF</div></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background: #FFFFFF; border-bottom: 1px solid #E5E7EB;"></div>
+        <div class="swatch-info"><div class="name">White</div><div class="hex">#FFFFFF</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TYPOGRAPHY ===== -->
+  <div class="section">
+    <div class="section-label">05 — Typography</div>
+    <div class="section-title">Brand Typefaces</div>
+    <div class="type-row">
+      <div class="type-sample">
+        <div class="demo" style="font-family:'Instrument Sans',sans-serif; font-weight:700; font-size:32px; color:#0C0714;">ORBIS</div>
+        <div class="meta">
+          <strong>Instrument Sans — Bold 700</strong><br>
+          Used for wordmark "ORBIS" and headings.<br>
+          All-caps for the logo lockup.
+        </div>
+      </div>
+      <div class="type-sample">
+        <div class="demo" style="font-family:'DM Sans',sans-serif; font-weight:500; font-size:16px; letter-spacing:0.22em; color:#7C3AED;">SYSTEMS</div>
+        <div class="meta">
+          <strong>DM Sans — Medium 500</strong><br>
+          Used for subtitle "SYSTEMS" and body text.<br>
+          Letter-spacing: 0.22em for the logo lockup.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== DON'TS ===== -->
+  <div class="section">
+    <div class="section-label">06 — Usage Don'ts</div>
+    <div class="section-title">Logo Misuse</div>
+    <div class="donts-grid">
+      <div class="dont-card">
+        <div class="dont-display">
+          <svg width="100" height="50" viewBox="0 0 100 50" fill="none"><g transform="translate(25,25) rotate(15)"><circle r="15" stroke="#7C3AED" stroke-width="2.5" fill="none"/><circle r="2.5" fill="#7C3AED"/></g><text x="52" y="22" font-family="'Instrument Sans'" font-weight="700" font-size="14" fill="#0C0714" transform="rotate(15 52 22)">ORBIS</text></svg>
+        </div>
+        <div class="desc">Don't rotate the logo</div>
+      </div>
+      <div class="dont-card">
+        <div class="dont-display">
+          <svg width="100" height="50" viewBox="0 0 100 50" fill="none"><g transform="translate(25,25)"><circle r="15" stroke="#7C3AED" stroke-width="2.5" fill="none" opacity="0.3"/><circle r="2.5" fill="#7C3AED" opacity="0.3"/></g><text x="52" y="30" font-family="'Instrument Sans'" font-weight="700" font-size="14" fill="#0C0714" opacity="0.3">ORBIS</text></svg>
+        </div>
+        <div class="desc">Don't reduce opacity</div>
+      </div>
+      <div class="dont-card">
+        <div class="dont-display">
+          <svg width="100" height="50" viewBox="0 0 100 50" fill="none"><g transform="translate(25,25) scale(1, 0.6)"><circle r="15" stroke="#7C3AED" stroke-width="2.5" fill="none"/><circle r="2.5" fill="#7C3AED"/></g><text x="52" y="30" font-family="'Instrument Sans'" font-weight="700" font-size="14" fill="#0C0714">ORBIS</text></svg>
+        </div>
+        <div class="desc">Don't stretch or distort</div>
+      </div>
+      <div class="dont-card">
+        <div class="dont-display">
+          <svg width="100" height="50" viewBox="0 0 100 50" fill="none"><g transform="translate(25,25)"><circle r="15" stroke="#E53E3E" stroke-width="2.5" fill="none"/><circle r="2.5" fill="#E53E3E"/></g><text x="52" y="30" font-family="'Instrument Sans'" font-weight="700" font-size="14" fill="#E53E3E">ORBIS</text></svg>
+        </div>
+        <div class="desc">Don't change brand colors</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

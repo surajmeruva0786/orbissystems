@@ -26,3 +26,17 @@ yarn-error.log*
 
 # Environment files (local configs)
 /.env.*
+.env
+.env.*
+
+# landing_page
+landing_page/node_modules/
+landing_page/dist/
+landing_page/.vite/
+landing_page/package-lock.json
+
+# jungle-safari-cg
+jungle-safari-cg/frontend/node_modules/
+jungle-safari-cg/frontend/dist/
+jungle-safari-cg/frontend/.vite/
+jungle-safari-cg/frontend/package-lock.json
