@@ -6,7 +6,32 @@
       "Bash(while read:*)",
       "Bash(do /tmp/check_imports.sh \"$f\" done)",
       "Bash(xargs basename:*)",
-      "Bash(xargs grep:*)"
+      "Bash(xargs grep:*)",
+      "Bash(npm --version)",
+      "Bash(npx --version)",
+      "Bash(npm install:*)",
+      "Bash(npm show:*)",
+      "Bash(python -c \"import sys,json; v=[x for x in json.load\\(sys.stdin\\) if x.startswith\\(''''54''''\\)]; print\\(v[-3:]\\)\")",
+      "Bash(python -c \"import sys,json; v=[x for x in json.load\\(sys.stdin\\) if x.startswith\\(''''0.76''''\\)]; print\\(v[-5:]\\)\")",
+      "Bash(python -c \"import sys,json; v=[x for x in json.load\\(sys.stdin\\) if x.startswith\\(''''18''''\\)]; print\\(v[-5:]\\)\")",
+      "Bash(node -e \":*)",
+      "Bash(node -e \"const f = require\\(''@expo-google-fonts/dm-sans''\\); console.log\\(Object.keys\\(f\\).filter\\(k => k.includes\\(''DMSans''\\)\\).slice\\(0,8\\)\\)\")",
+      "Bash(node -e \"const f = require\\(''@expo-google-fonts/instrument-sans''\\); console.log\\(Object.keys\\(f\\).filter\\(k => k.includes\\(''Instrument''\\)\\).slice\\(0,6\\)\\)\")",
+      "Bash(node -e \"const f = require\\(''@expo-google-fonts/dm-sans''\\); console.log\\(Object.keys\\(f\\).slice\\(0,10\\)\\)\")",
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(''''expo-router:'''', p[''''version'''']\\)\")",
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(''''expo:'''', p[''''version'''']\\)\")",
+      "Bash(netstat -ano)",
+      "Bash(taskkill /PID 33376 /F)",
+      "Bash(cmd /c \"taskkill /PID 33376 /F\" 2>&1)",
+      "Bash(cmd /c \"taskkill /F /PID 33376\")",
+      "Bash(ipconfig)",
+      "Bash(curl -s \"http://localhost:8082/status\")",
+      "Bash(curl -s \"http://localhost:8082/_expo/fingerprint\")",
+      "Bash(cmd /c \"taskkill /F /IM node.exe\")",
+      "Bash(python -c \"import sys,json; v=json.load\\(sys.stdin\\); print\\(v[-5:]\\)\")",
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(''''reanimated version:'''', p[''''version'''']\\)\")",
+      "Bash(find Z:/orbissystems/jungle-safari-cg/mobile/node_modules -name package.json -path */react-native-reanimated/package.json)",
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(json.dumps\\(p.get\\(''''peerDependencies'''',{}\\), indent=2\\)\\); print\\(json.dumps\\(p.get\\(''''dependencies'''',{}\\), indent=2\\)\\)\")"
     ]
   }
 }
