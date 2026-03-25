@@ -103,7 +103,7 @@ export function LoginPage() {
       <header className="bg-white/80 backdrop-blur-sm border-b border-gray-100/50 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
-            <img src={orbisLogoLight} alt="Orbis Systems" className="h-8 sm:h-9" />
+            <img src={orbisLogoLight} alt="Orbis Systems" className="h-12 sm:h-14" />
             <div className="flex items-center gap-3">
               <span className="hidden sm:inline-block text-xs text-gray-500 font-medium px-3 py-1.5 bg-gray-100 rounded-full" style={{ fontFamily: "'DM Sans', sans-serif" }}>
                 Government Portal

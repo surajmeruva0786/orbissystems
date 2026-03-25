@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, UserPlus } from "lucide-react";
+import { X, UserPlus, Briefcase } from "lucide-react";
 
 interface Animal {
   id: string;

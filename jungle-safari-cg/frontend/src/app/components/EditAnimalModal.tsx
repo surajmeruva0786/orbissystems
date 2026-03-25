@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { X, UserRoundPlus } from "lucide-react";
+import { X, UserRoundPlus, UserPlus } from "lucide-react";
 
 interface Zookeeper {
   id: string;
