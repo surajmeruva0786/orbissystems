@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"^react$|^react-dom$\")",
+      "Bash(node --input-type=module --eval \"import\\(''''./src/app/App.tsx''''\\).catch\\(e => console.error\\(e\\)\\)\")",
+      "Bash(while read:*)",
+      "Bash(do /tmp/check_imports.sh \"$f\" done)"
+    ]
+  }
+}

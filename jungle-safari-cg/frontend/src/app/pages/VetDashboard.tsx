@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Activity, AlertCircle, FileText, Pill, Stethoscope, Plus, X, Calendar, Clock, Syringe, ClipboardList, FolderOpen, FilePlus, Package, Send } from "lucide-react";
+import { Activity, AlertCircle, FileText, Pill, Stethoscope, Plus, X, Calendar, Clock, Syringe, ClipboardList, FolderOpen, FilePlus, Package, Send, History } from "lucide-react";
 import { mockAnimals, mockDailyLogs, mockMedicalRecords } from "../data/mockData";
 import { MedicinalInventoryManager } from "../components/MedicinalInventoryManager";
 import { SendInstructionsModal } from "../components/SendInstructionsModal";

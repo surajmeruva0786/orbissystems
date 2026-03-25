@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
 import { LogOut, Bell } from "lucide-react";
 import orbisLogoLight from "../../imports/orbis-logo-light-7.svg";
 

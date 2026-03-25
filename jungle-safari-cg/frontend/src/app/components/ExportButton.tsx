@@ -1,4 +1,4 @@
-import { Download, FileDown } from "lucide-react";
+import { Download, FileDown, FileText } from "lucide-react";
 
 interface ExportButtonProps {
   type: "csv" | "pdf";
