@@ -14,7 +14,7 @@ const roles = [
     icon: Users,
     gradient: "from-blue-500 to-indigo-600",
     iconBg: "bg-blue-500",
-    path: "/app/zookeeper",
+    path: "/zookeeper",
   },
   {
     id: "vet",
@@ -25,7 +25,7 @@ const roles = [
     icon: Stethoscope,
     gradient: "from-emerald-500 to-teal-600",
     iconBg: "bg-emerald-500",
-    path: "/app/vet",
+    path: "/vet",
   },
   {
     id: "forest-officer",
@@ -36,7 +36,7 @@ const roles = [
     icon: Trees,
     gradient: "from-purple-500 to-indigo-600",
     iconBg: "bg-purple-500",
-    path: "/app/forest-officer",
+    path: "/forest-officer",
   },
   {
     id: "admin",
@@ -47,7 +47,7 @@ const roles = [
     icon: ShieldCheck,
     gradient: "from-orange-500 to-red-600",
     iconBg: "bg-orange-500",
-    path: "/app/admin",
+    path: "/admin",
   },
 ];
 
