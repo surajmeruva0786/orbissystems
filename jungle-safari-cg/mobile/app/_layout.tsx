@@ -145,7 +145,7 @@ export default function RootLayout() {
 
           {/* Wordmark */}
           <View style={styles.wordmarkWrap}>
-            <OrbisLogoOnDark width={256} height={60} />
+            <OrbisLogoOnDark width={256} height={84} />
           </View>
 
           {/* Thin rule + tagline */}

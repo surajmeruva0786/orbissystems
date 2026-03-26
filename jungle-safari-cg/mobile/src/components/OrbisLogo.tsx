@@ -3,9 +3,10 @@ import Svg, { Circle, Path, Text, Defs, LinearGradient, Stop, Rect, G } from 're
 
 // Full wordmark — dark-background variant (matches orbis-logo-dark.svg brand spec exactly)
 // Circle: #A78BFA | Arc gradient: #C4B5FD→#8B5CF6 | ORBIS: white | SYSTEMS: #A78BFA
+// ViewBox trimmed to content bounds (x=12..188, y=10..68) so the mark centers naturally.
 export function OrbisLogoOnDark({ width = 220, height = 52 }: { width?: number; height?: number }) {
   return (
-    <Svg width={width} height={height} viewBox="0 0 340 80" fill="none">
+    <Svg width={width} height={height} viewBox="12 10 176 58" fill="none">
       <Defs>
         {/* gradient coords are absolute (G translate(40,40) + arc endpoints ±22,-18) */}
         <LinearGradient id="pD1" x1="18" y1="22" x2="62" y2="22">
