@@ -5,6 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import LottieView from 'lottie-react-native';
 import Svg, { Circle, Path, Defs, LinearGradient, Stop } from 'react-native-svg';
 import { OrbisLogoOnDark, OrbisAppIcon } from '../src/components/OrbisLogo';
+import { TouchSpark } from '../src/components/TouchSpark';
 
 const { width, height } = Dimensions.get('window');
 
@@ -67,10 +68,12 @@ export default function RootLayout() {
       <Animated.View style={[styles.fill, { opacity: appOpacity }]}
         pointerEvents={phase === 'app' ? 'auto' : 'none'}
       >
-        <Stack screenOptions={{ headerShown: false }}>
-          <Stack.Screen name="index" />
-          <Stack.Screen name="dashboard" />
-        </Stack>
+        <TouchSpark sparkColor="#7C3AED" sparkRadius={25} sparkCount={8} duration={600}>
+          <Stack screenOptions={{ headerShown: false }}>
+            <Stack.Screen name="index" />
+            <Stack.Screen name="dashboard" />
+          </Stack>
+        </TouchSpark>
       </Animated.View>
 
       {/* ── Phase 1: Lottie welcome animation ── */}
