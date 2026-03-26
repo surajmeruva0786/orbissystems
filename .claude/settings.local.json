@@ -31,7 +31,8 @@
       "Bash(python -c \"import sys,json; v=json.load\\(sys.stdin\\); print\\(v[-5:]\\)\")",
       "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(''''reanimated version:'''', p[''''version'''']\\)\")",
       "Bash(find Z:/orbissystems/jungle-safari-cg/mobile/node_modules -name package.json -path */react-native-reanimated/package.json)",
-      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(json.dumps\\(p.get\\(''''peerDependencies'''',{}\\), indent=2\\)\\); print\\(json.dumps\\(p.get\\(''''dependencies'''',{}\\), indent=2\\)\\)\")"
+      "Bash(python -c \"import sys,json; p=json.load\\(sys.stdin\\); print\\(json.dumps\\(p.get\\(''''peerDependencies'''',{}\\), indent=2\\)\\); print\\(json.dumps\\(p.get\\(''''dependencies'''',{}\\), indent=2\\)\\)\")",
+      "Bash(grep -l \"zookeeper\\\\|Zookeeper\" Z:orbissystemsjungle-safari-cgfrontendsrc -r --include=*.tsx --include=*.ts)"
     ]
   }
 }
