@@ -35,7 +35,9 @@
       "Bash(grep -l \"zookeeper\\\\|Zookeeper\" Z:orbissystemsjungle-safari-cgfrontendsrc -r --include=*.tsx --include=*.ts)",
       "Bash(node -e \"require\\(''babel-preset-expo''\\); console.log\\(''OK''\\)\")",
       "Bash(node:*)",
-      "Bash(cd:*)"
+      "Bash(cd:*)",
+      "Bash(node -e \"console.log\\(require\\(''./node_modules/react-native-svg/package.json''\\).version\\)\")",
+      "Bash(node -p \"require\\(''./node_modules/expo/bundledNativeModules.json''\\)[''expo-linking'']\")"
     ]
   }
 }

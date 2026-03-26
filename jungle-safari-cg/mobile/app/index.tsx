@@ -13,6 +13,7 @@ import {
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { OrbisLogoLight, OrbisAppIcon } from '../src/components/OrbisLogo';
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -33,11 +34,10 @@ export default function LoginScreen() {
   if (isLoading) {
     return (
       <View style={styles.loadingScreen}>
-        <View style={styles.loadingBox}>
-          <ActivityIndicator size="large" color="#7C3AED" />
-          <Text style={styles.loadingTitle}>Signing you in...</Text>
-          <Text style={styles.loadingSubtitle}>Please wait a moment</Text>
-        </View>
+        <OrbisAppIcon size={80} />
+        <ActivityIndicator size="large" color="#7C3AED" style={{ marginTop: 24 }} />
+        <Text style={styles.loadingTitle}>Signing you in...</Text>
+        <Text style={styles.loadingSubtitle}>Please wait a moment</Text>
       </View>
     );
   }
@@ -54,27 +54,25 @@ export default function LoginScreen() {
           keyboardShouldPersistTaps="handled"
           showsVerticalScrollIndicator={false}
         >
-          {/* Header */}
+          {/* Header — Orbis logo + gov badge */}
           <View style={styles.appHeader}>
-            <View style={styles.logoMark}>
-              <Ionicons name="leaf" size={22} color="#7C3AED" />
-            </View>
-            <View>
-              <Text style={styles.logoText}>Jungle Safari Zoo</Text>
-              <Text style={styles.logoTag}>Management System</Text>
-            </View>
+            <OrbisLogoLight width={180} height={43} />
             <View style={styles.govBadge}>
               <Text style={styles.govBadgeText}>Gov Portal</Text>
             </View>
           </View>
 
-          {/* Title */}
-          <View style={styles.titleSection}>
-            <View style={styles.secureChip}>
-              <View style={styles.secureChipDot} />
-              <Text style={styles.secureChipText}>SECURE ACCESS PORTAL</Text>
+          {/* Hero — app icon + title */}
+          <View style={styles.heroSection}>
+            <OrbisAppIcon size={72} />
+            <View style={styles.heroText}>
+              <View style={styles.secureChip}>
+                <View style={styles.secureChipDot} />
+                <Text style={styles.secureChipText}>SECURE ACCESS PORTAL</Text>
+              </View>
+              <Text style={styles.pageTitle}>Jungle Safari Zoo{'\n'}Management</Text>
+              <Text style={styles.pageSubtitle}>Zookeeper Portal</Text>
             </View>
-            <Text style={styles.pageTitle}>Zookeeper Login</Text>
           </View>
 
           {/* Login form */}
@@ -179,49 +177,53 @@ const ZOOKEEPER_BLUE = '#3B82F6';
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#F8F7FF' },
   scroll: { flex: 1 },
-  scrollContent: { padding: 16, paddingBottom: 32 },
+  scrollContent: { padding: 20, paddingBottom: 32 },
 
   // Loading
-  loadingScreen: { flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: '#F8F7FF' },
-  loadingBox: { alignItems: 'center', gap: 12 },
-  loadingTitle: { fontSize: 16, fontWeight: '600', color: PURPLE },
+  loadingScreen: {
+    flex: 1, alignItems: 'center', justifyContent: 'center',
+    backgroundColor: '#F8F7FF', gap: 8,
+  },
+  loadingTitle: { fontSize: 16, fontWeight: '600', color: PURPLE, marginTop: 8 },
   loadingSubtitle: { fontSize: 13, color: '#6B7280' },
 
   // App header
   appHeader: {
-    flexDirection: 'row', alignItems: 'center', gap: 10, marginBottom: 24,
+    flexDirection: 'row', alignItems: 'center',
+    justifyContent: 'space-between', marginBottom: 28,
   },
-  logoMark: {
-    width: 40, height: 40, borderRadius: 10,
-    backgroundColor: '#F5F3FF', alignItems: 'center', justifyContent: 'center',
-  },
-  logoText: { fontSize: 15, fontWeight: '700', color: '#111827' },
-  logoTag: { fontSize: 11, color: '#6B7280' },
   govBadge: {
-    marginLeft: 'auto',
     backgroundColor: '#F3F4F6', borderRadius: 20,
     paddingHorizontal: 10, paddingVertical: 4,
   },
   govBadgeText: { fontSize: 11, fontWeight: '500', color: '#6B7280' },
 
-  // Title
-  titleSection: { alignItems: 'center', marginBottom: 24 },
-  secureChip: {
-    flexDirection: 'row', alignItems: 'center', gap: 6,
-    backgroundColor: '#F5F3FF', borderRadius: 20,
-    paddingHorizontal: 12, paddingVertical: 5, marginBottom: 10,
+  // Hero
+  heroSection: {
+    flexDirection: 'row', alignItems: 'center',
+    gap: 16, marginBottom: 28,
+    backgroundColor: '#FFFFFF', borderRadius: 16,
+    padding: 18, borderWidth: 1, borderColor: '#EDE9FE',
+    shadowColor: PURPLE, shadowOpacity: 0.06, shadowRadius: 12,
+    shadowOffset: { width: 0, height: 2 }, elevation: 2,
   },
-  secureChipDot: { width: 6, height: 6, borderRadius: 3, backgroundColor: PURPLE },
-  secureChipText: { fontSize: 10, fontWeight: '700', color: PURPLE, letterSpacing: 0.8 },
-  pageTitle: { fontSize: 22, fontWeight: '700', color: '#111827', textAlign: 'center' },
+  heroText: { flex: 1 },
+  secureChip: {
+    flexDirection: 'row', alignItems: 'center', gap: 5,
+    marginBottom: 6,
+  },
+  secureChipDot: { width: 5, height: 5, borderRadius: 3, backgroundColor: PURPLE },
+  secureChipText: { fontSize: 9, fontWeight: '700', color: PURPLE, letterSpacing: 0.8 },
+  pageTitle: { fontSize: 17, fontWeight: '700', color: '#0C0714', lineHeight: 24 },
+  pageSubtitle: { fontSize: 12, color: PURPLE, fontWeight: '600', marginTop: 4 },
 
   // Form
   formCard: {
     backgroundColor: '#FFFFFF', borderRadius: 16,
     padding: 20, marginBottom: 20,
     borderWidth: 1, borderColor: '#E5E7EB',
-    shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 10, shadowOffset: { width: 0, height: 2 },
-    elevation: 3,
+    shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 10,
+    shadowOffset: { width: 0, height: 2 }, elevation: 3,
   },
   formHeader: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 20 },
   formHeaderIcon: {
@@ -232,7 +234,10 @@ const styles = StyleSheet.create({
   formTitle: { fontSize: 17, fontWeight: '700', color: '#111827' },
   formSub: { fontSize: 13, color: '#6B7280', marginTop: 2 },
   fieldGroup: { marginBottom: 16 },
-  fieldLabelRow: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 },
+  fieldLabelRow: {
+    flexDirection: 'row', justifyContent: 'space-between',
+    alignItems: 'center', marginBottom: 6,
+  },
   fieldLabel: { fontSize: 13, fontWeight: '500', color: '#374151', marginBottom: 6 },
   forgotLink: { fontSize: 12, fontWeight: '600', color: PURPLE },
   textInput: {
@@ -249,8 +254,8 @@ const styles = StyleSheet.create({
   signInBtn: {
     backgroundColor: PURPLE, borderRadius: 12,
     paddingVertical: 14, alignItems: 'center', marginBottom: 16,
-    shadowColor: PURPLE, shadowOpacity: 0.3, shadowRadius: 8, shadowOffset: { width: 0, height: 4 },
-    elevation: 4,
+    shadowColor: PURPLE, shadowOpacity: 0.3, shadowRadius: 8,
+    shadowOffset: { width: 0, height: 4 }, elevation: 4,
   },
   signInBtnDisabled: { opacity: 0.5 },
   signInBtnText: { fontSize: 15, fontWeight: '700', color: '#FFFFFF' },
