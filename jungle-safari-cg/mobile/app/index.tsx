@@ -14,76 +14,19 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
 
-type RoleId = 'zookeeper' | 'vet' | 'forest-officer' | 'admin';
-
-interface Role {
-  id: RoleId;
-  title: string;
-  titleHindi: string;
-  description: string;
-  icon: keyof typeof Ionicons.glyphMap;
-  color: string;
-  bgColor: string;
-}
-
-const roles: Role[] = [
-  {
-    id: 'zookeeper',
-    title: 'Zookeeper',
-    titleHindi: 'चिड़ियाघर कर्मी',
-    description: 'Daily monitoring & animal care',
-    icon: 'people',
-    color: '#3B82F6',
-    bgColor: '#EFF6FF',
-  },
-  {
-    id: 'vet',
-    title: 'Veterinarian',
-    titleHindi: 'पशु चिकित्सक',
-    description: 'Medical records & treatment',
-    icon: 'medkit',
-    color: '#10B981',
-    bgColor: '#ECFDF5',
-  },
-  {
-    id: 'forest-officer',
-    title: 'Forest Officer',
-    titleHindi: 'वन अधिकारी',
-    description: 'Analytics & inventory management',
-    icon: 'leaf',
-    color: '#8B5CF6',
-    bgColor: '#F5F3FF',
-  },
-  {
-    id: 'admin',
-    title: 'Administrator',
-    titleHindi: 'प्रशासक',
-    description: 'System-wide management',
-    icon: 'shield-checkmark',
-    color: '#F97316',
-    bgColor: '#FFF7ED',
-  },
-];
-
 export default function LoginScreen() {
   const router = useRouter();
-  const [selectedRole, setSelectedRole] = useState<RoleId | null>(null);
   const [employeeId, setEmployeeId] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  const currentRole = roles.find((r) => r.id === selectedRole);
-
   function handleLogin() {
-    if (!selectedRole || !employeeId || !password) return;
+    if (!employeeId || !password) return;
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-      if (selectedRole === 'zookeeper') {
-        router.replace('/dashboard');
-      }
-      // Other roles would route elsewhere
+      router.replace('/dashboard');
     }, 1200);
   }
 
@@ -131,151 +74,96 @@ export default function LoginScreen() {
               <View style={styles.secureChipDot} />
               <Text style={styles.secureChipText}>SECURE ACCESS PORTAL</Text>
             </View>
-            <Text style={styles.pageTitle}>Select your role to sign in</Text>
-          </View>
-
-          {/* Role cards */}
-          <View style={styles.rolesSection}>
-            <Text style={styles.sectionLabel}>Select Your Role</Text>
-            {roles.map((role) => {
-              const isSelected = selectedRole === role.id;
-              return (
-                <TouchableOpacity
-                  key={role.id}
-                  style={[styles.roleCard, isSelected && styles.roleCardSelected]}
-                  onPress={() => setSelectedRole(role.id)}
-                  activeOpacity={0.7}
-                >
-                  <View
-                    style={[
-                      styles.roleIcon,
-                      { backgroundColor: isSelected ? role.color : '#F3F4F6' },
-                    ]}
-                  >
-                    <Ionicons
-                      name={role.icon}
-                      size={20}
-                      color={isSelected ? '#FFFFFF' : '#6B7280'}
-                    />
-                  </View>
-                  <View style={styles.roleTextWrap}>
-                    <Text style={styles.roleTitle}>{role.title}</Text>
-                    <Text style={styles.roleDesc}>{role.description}</Text>
-                  </View>
-                  {isSelected ? (
-                    <View style={styles.checkCircle}>
-                      <Ionicons name="checkmark" size={14} color="#FFFFFF" />
-                    </View>
-                  ) : (
-                    <Ionicons name="chevron-forward" size={18} color="#D1D5DB" />
-                  )}
-                </TouchableOpacity>
-              );
-            })}
+            <Text style={styles.pageTitle}>Zookeeper Login</Text>
           </View>
 
           {/* Login form */}
-          {selectedRole ? (
-            <View style={styles.formCard}>
-              {/* Form header */}
-              <View style={styles.formHeader}>
-                <View
-                  style={[
-                    styles.formHeaderIcon,
-                    { backgroundColor: currentRole?.color ?? '#7C3AED' },
-                  ]}
-                >
-                  <Ionicons name={currentRole?.icon ?? 'person'} size={20} color="#FFFFFF" />
-                </View>
-                <View>
-                  <Text style={styles.formTitle}>{currentRole?.title} Login</Text>
-                  <Text style={styles.formSub}>Enter your credentials to continue</Text>
-                </View>
+          <View style={styles.formCard}>
+            {/* Form header */}
+            <View style={styles.formHeader}>
+              <View style={styles.formHeaderIcon}>
+                <Ionicons name="people" size={20} color="#FFFFFF" />
               </View>
-
-              {/* Employee ID */}
-              <View style={styles.fieldGroup}>
-                <Text style={styles.fieldLabel}>Employee ID / Username</Text>
-                <TextInput
-                  style={styles.textInput}
-                  value={employeeId}
-                  onChangeText={setEmployeeId}
-                  placeholder="Enter your employee ID"
-                  placeholderTextColor="#9CA3AF"
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                />
-              </View>
-
-              {/* Password */}
-              <View style={styles.fieldGroup}>
-                <View style={styles.fieldLabelRow}>
-                  <Text style={styles.fieldLabel}>Password</Text>
-                  <TouchableOpacity>
-                    <Text style={styles.forgotLink}>Forgot?</Text>
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.passwordWrap}>
-                  <TextInput
-                    style={[styles.textInput, { flex: 1, borderWidth: 0 }]}
-                    value={password}
-                    onChangeText={setPassword}
-                    placeholder="Enter your password"
-                    placeholderTextColor="#9CA3AF"
-                    secureTextEntry={!showPassword}
-                    autoCapitalize="none"
-                  />
-                  <TouchableOpacity
-                    style={styles.eyeBtn}
-                    onPress={() => setShowPassword((v) => !v)}
-                  >
-                    <Ionicons
-                      name={showPassword ? 'eye-off' : 'eye'}
-                      size={18}
-                      color="#9CA3AF"
-                    />
-                  </TouchableOpacity>
-                </View>
-              </View>
-
-              {/* Sign in button */}
-              <TouchableOpacity
-                style={[
-                  styles.signInBtn,
-                  (!employeeId || !password) && styles.signInBtnDisabled,
-                ]}
-                onPress={handleLogin}
-                disabled={!employeeId || !password}
-                activeOpacity={0.85}
-              >
-                <Text style={styles.signInBtnText}>Sign In to Dashboard</Text>
-              </TouchableOpacity>
-
-              {/* Divider */}
-              <View style={styles.divider}>
-                <View style={styles.dividerLine} />
-                <Text style={styles.dividerText}>Authorized Personnel Only</Text>
-                <View style={styles.dividerLine} />
-              </View>
-
-              {/* Security notice */}
-              <View style={styles.securityNotice}>
-                <Ionicons name="warning" size={14} color="#92400E" />
-                <Text style={styles.securityText}>
-                  <Text style={{ fontWeight: '700' }}>Security Notice: </Text>
-                  This is a government-authorized system. Unauthorized access is strictly prohibited.
-                </Text>
+              <View>
+                <Text style={styles.formTitle}>Zookeeper Login</Text>
+                <Text style={styles.formSub}>Enter your credentials to continue</Text>
               </View>
             </View>
-          ) : (
-            <View style={styles.placeholderCard}>
-              <Ionicons name="shield-checkmark-outline" size={36} color="#D1D5DB" />
-              <Text style={styles.placeholderTitle}>Select Your Role</Text>
-              <Text style={styles.placeholderSub}>
-                Choose your designated role above to access the login form
+
+            {/* Employee ID */}
+            <View style={styles.fieldGroup}>
+              <Text style={styles.fieldLabel}>Employee ID / Username</Text>
+              <TextInput
+                style={styles.textInput}
+                value={employeeId}
+                onChangeText={setEmployeeId}
+                placeholder="Enter your employee ID"
+                placeholderTextColor="#9CA3AF"
+                autoCapitalize="none"
+                autoCorrect={false}
+              />
+            </View>
+
+            {/* Password */}
+            <View style={styles.fieldGroup}>
+              <View style={styles.fieldLabelRow}>
+                <Text style={styles.fieldLabel}>Password</Text>
+                <TouchableOpacity>
+                  <Text style={styles.forgotLink}>Forgot?</Text>
+                </TouchableOpacity>
+              </View>
+              <View style={styles.passwordWrap}>
+                <TextInput
+                  style={[styles.textInput, { flex: 1, borderWidth: 0 }]}
+                  value={password}
+                  onChangeText={setPassword}
+                  placeholder="Enter your password"
+                  placeholderTextColor="#9CA3AF"
+                  secureTextEntry={!showPassword}
+                  autoCapitalize="none"
+                />
+                <TouchableOpacity
+                  style={styles.eyeBtn}
+                  onPress={() => setShowPassword((v) => !v)}
+                >
+                  <Ionicons
+                    name={showPassword ? 'eye-off' : 'eye'}
+                    size={18}
+                    color="#9CA3AF"
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            {/* Sign in button */}
+            <TouchableOpacity
+              style={[
+                styles.signInBtn,
+                (!employeeId || !password) && styles.signInBtnDisabled,
+              ]}
+              onPress={handleLogin}
+              disabled={!employeeId || !password}
+              activeOpacity={0.85}
+            >
+              <Text style={styles.signInBtnText}>Sign In to Dashboard</Text>
+            </TouchableOpacity>
+
+            {/* Divider */}
+            <View style={styles.divider}>
+              <View style={styles.dividerLine} />
+              <Text style={styles.dividerText}>Authorized Personnel Only</Text>
+              <View style={styles.dividerLine} />
+            </View>
+
+            {/* Security notice */}
+            <View style={styles.securityNotice}>
+              <Ionicons name="warning" size={14} color="#92400E" />
+              <Text style={styles.securityText}>
+                <Text style={{ fontWeight: '700' }}>Security Notice: </Text>
+                This is a government-authorized system. Unauthorized access is strictly prohibited.
               </Text>
             </View>
-          )}
+          </View>
 
           {/* Footer */}
           <Text style={styles.footer}>© 2024 Orbis Systems. All rights reserved.</Text>
@@ -286,6 +174,7 @@ export default function LoginScreen() {
 }
 
 const PURPLE = '#7C3AED';
+const ZOOKEEPER_BLUE = '#3B82F6';
 
 const styles = StyleSheet.create({
   safe: { flex: 1, backgroundColor: '#F8F7FF' },
@@ -326,34 +215,6 @@ const styles = StyleSheet.create({
   secureChipText: { fontSize: 10, fontWeight: '700', color: PURPLE, letterSpacing: 0.8 },
   pageTitle: { fontSize: 22, fontWeight: '700', color: '#111827', textAlign: 'center' },
 
-  // Roles
-  rolesSection: { marginBottom: 20 },
-  sectionLabel: { fontSize: 13, fontWeight: '600', color: '#374151', marginBottom: 10 },
-  roleCard: {
-    flexDirection: 'row', alignItems: 'center',
-    backgroundColor: '#FFFFFF', borderRadius: 14,
-    padding: 14, marginBottom: 10,
-    borderWidth: 1.5, borderColor: '#E5E7EB',
-    shadowColor: '#000', shadowOpacity: 0.03, shadowRadius: 4, shadowOffset: { width: 0, height: 1 },
-    elevation: 1,
-  },
-  roleCardSelected: {
-    borderColor: PURPLE,
-    shadowColor: PURPLE, shadowOpacity: 0.12, shadowRadius: 8,
-    elevation: 3,
-  },
-  roleIcon: {
-    width: 42, height: 42, borderRadius: 10,
-    alignItems: 'center', justifyContent: 'center', marginRight: 12,
-  },
-  roleTextWrap: { flex: 1 },
-  roleTitle: { fontSize: 14, fontWeight: '600', color: '#111827' },
-  roleDesc: { fontSize: 12, color: '#9CA3AF', marginTop: 2 },
-  checkCircle: {
-    width: 24, height: 24, borderRadius: 12,
-    backgroundColor: PURPLE, alignItems: 'center', justifyContent: 'center',
-  },
-
   // Form
   formCard: {
     backgroundColor: '#FFFFFF', borderRadius: 16,
@@ -365,6 +226,7 @@ const styles = StyleSheet.create({
   formHeader: { flexDirection: 'row', alignItems: 'center', gap: 12, marginBottom: 20 },
   formHeaderIcon: {
     width: 44, height: 44, borderRadius: 12,
+    backgroundColor: ZOOKEEPER_BLUE,
     alignItems: 'center', justifyContent: 'center',
   },
   formTitle: { fontSize: 17, fontWeight: '700', color: '#111827' },
@@ -401,15 +263,6 @@ const styles = StyleSheet.create({
     borderRadius: 10, padding: 12,
   },
   securityText: { fontSize: 12, color: '#92400E', flex: 1, lineHeight: 18 },
-
-  // Placeholder
-  placeholderCard: {
-    backgroundColor: '#FFFFFF', borderRadius: 16,
-    borderWidth: 2, borderColor: '#E5E7EB', borderStyle: 'dashed',
-    padding: 40, alignItems: 'center', marginBottom: 20,
-  },
-  placeholderTitle: { fontSize: 16, fontWeight: '700', color: '#374151', marginTop: 12, marginBottom: 6 },
-  placeholderSub: { fontSize: 13, color: '#9CA3AF', textAlign: 'center', lineHeight: 20 },
 
   footer: { fontSize: 11, color: '#D1D5DB', textAlign: 'center' },
 });
