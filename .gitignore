@@ -40,3 +40,13 @@ jungle-safari-cg/frontend/node_modules/
 jungle-safari-cg/frontend/dist/
 jungle-safari-cg/frontend/.vite/
 jungle-safari-cg/frontend/package-lock.json
+
+# jungle-safari-cg mobile
+jungle-safari-cg/mobile/node_modules/
+jungle-safari-cg/mobile/package-lock.json
+jungle-safari-cg/mobile/.expo/
+jungle-safari-cg/mobile/dist/
+jungle-safari-cg/mobile/android/
+jungle-safari-cg/mobile/ios/
+jungle-safari-cg/mobile/.env
+jungle-safari-cg/mobile/.env.*
