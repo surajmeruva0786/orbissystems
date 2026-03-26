@@ -271,7 +271,7 @@ export default function ZookeeperDashboard() {
               >
                 <View style={[styles.reminderIcon, { backgroundColor: r.urgent ? '#FEE2E2' : '#FEF3C7' }]}>
                   <Ionicons
-                    name="alert-triangle"
+                    name="warning"
                     size={18}
                     color={r.urgent ? '#B91C1C' : '#D97706'}
                   />
