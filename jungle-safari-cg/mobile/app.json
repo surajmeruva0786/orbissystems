@@ -5,6 +5,7 @@
     "version": "1.0.0",
     "orientation": "portrait",
     "userInterfaceStyle": "light",
+    "icon": "./assets/icon.png",
     "ios": {
       "supportsTablet": false,
       "bundleIdentifier": "com.orbissystems.junglesafarizookeeper",
@@ -14,7 +15,11 @@
     },
     "android": {
       "permissions": ["android.permission.RECORD_AUDIO"],
-      "package": "com.orbissystems.junglesafarizookeeper"
+      "package": "com.orbissystems.junglesafarizookeeper",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0C0714"
+      }
     },
     "web": {
       "bundler": "metro",
