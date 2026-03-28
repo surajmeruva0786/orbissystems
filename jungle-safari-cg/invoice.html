@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Invoice — Orbis Systems | Nandanvan Jungle Safari</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f5;
+      color: #18181b;
+      font-size: 13px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      padding: 14mm 14mm 12mm 14mm;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #7c3aed;
+      margin-bottom: 20px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #7c3aed;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      color: #71717a;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .invoice-label {
+      text-align: right;
+    }
+
+    .invoice-label h1 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #18181b;
+      letter-spacing: -1px;
+    }
+
+    .invoice-label p {
+      font-size: 11px;
+      color: #52525b;
+      margin-top: 3px;
+    }
+
+    .invoice-label .inv-no {
+      font-size: 12px;
+      font-weight: 600;
+      color: #7c3aed;
+    }
+
+    /* ── META ROW ── */
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 22px;
+      gap: 16px;
+    }
+
+    .meta-box {
+      flex: 1;
+    }
+
+    .meta-box h4 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 5px;
+    }
+
+    .meta-box p {
+      font-size: 12px;
+      color: #27272a;
+      line-height: 1.7;
+    }
+
+    .meta-box .org-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: #18181b;
+    }
+
+    .meta-box .detail-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .meta-box .detail-label {
+      font-size: 10px;
+      color: #71717a;
+      min-width: 80px;
+    }
+
+    .meta-box .detail-val {
+      font-size: 10px;
+      color: #27272a;
+      font-weight: 500;
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e4e4e7;
+      margin: 0 0 18px 0;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 8px;
+    }
+
+    /* ── TABLE ── */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    thead th {
+      background: #7c3aed;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    thead th:last-child {
+      text-align: right;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #f4f4f5;
+    }
+
+    tbody tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    tbody td {
+      padding: 9px 10px;
+      vertical-align: top;
+      color: #27272a;
+    }
+
+    .td-num {
+      color: #a1a1aa;
+      font-weight: 600;
+      width: 24px;
+    }
+
+    .td-service {
+      font-weight: 600;
+      font-size: 12px;
+      color: #18181b;
+    }
+
+    .td-desc {
+      font-size: 10px;
+      color: #71717a;
+      margin-top: 2px;
+      line-height: 1.5;
+    }
+
+    .td-amount {
+      text-align: right;
+      font-weight: 700;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .free-tag {
+      color: #16a34a;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .td-note {
+      font-size: 9px;
+      color: #a1a1aa;
+      font-style: italic;
+      display: block;
+      margin-top: 2px;
+    }
+
+    /* ── TOTALS ── */
+    .totals-wrap {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 20px;
+    }
+
+    .totals-box {
+      width: 260px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 12px;
+      border-bottom: 1px solid #f4f4f5;
+    }
+
+    .totals-row .t-label {
+      color: #52525b;
+    }
+
+    .totals-row .t-val {
+      font-weight: 600;
+      color: #18181b;
+    }
+
+    .totals-row.gst .t-label {
+      color: #52525b;
+    }
+
+    .totals-row.grand {
+      background: #7c3aed;
+      padding: 9px 10px;
+      border-radius: 6px;
+      margin-top: 6px;
+      border: none;
+    }
+
+    .totals-row.grand .t-label {
+      color: #ede9fe;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .totals-row.grand .t-val {
+      color: #fff;
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .annual-note {
+      text-align: right;
+      font-size: 10px;
+      color: #71717a;
+      margin-top: 6px;
+    }
+
+    .annual-note strong {
+      color: #7c3aed;
+      font-weight: 700;
+    }
+
+    /* ── USAGE SUMMARY ── */
+    .usage-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .usage-card {
+      background: #faf5ff;
+      border: 1px solid #ede9fe;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .usage-card .u-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: #7c3aed;
+    }
+
+    .usage-card .u-label {
+      font-size: 9px;
+      color: #71717a;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ── NOTES & BANK ── */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .info-box {
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .info-box h4 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 7px;
+    }
+
+    .info-box p, .info-box li {
+      font-size: 10px;
+      color: #52525b;
+      line-height: 1.7;
+    }
+
+    .info-box ul {
+      padding-left: 14px;
+    }
+
+    .bank-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      padding: 2px 0;
+      color: #52525b;
+    }
+
+    .bank-row span:first-child {
+      color: #a1a1aa;
+      min-width: 90px;
+    }
+
+    .bank-row span:last-child {
+      font-weight: 600;
+      color: #27272a;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #7c3aed;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer p {
+      font-size: 9px;
+      color: #a1a1aa;
+    }
+
+    .footer .sign-area {
+      text-align: right;
+    }
+
+    .footer .sign-area p {
+      font-size: 9px;
+      color: #52525b;
+    }
+
+    .footer .sign-area .sign-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-top: 20px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        padding: 12mm 14mm;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand-name">Orbis Systems</div>
+      <div class="brand-sub">Software · AI · Digital Infrastructure</div>
+      <div class="brand-sub" style="margin-top:6px;">Raipur, Chhattisgarh · info@orbissystems.co.in · +91 86880 34099</div>
+      <div class="brand-sub">GSTIN: [YOUR GSTIN] &nbsp;|&nbsp; PAN: [YOUR PAN]</div>
+    </div>
+    <div class="invoice-label">
+      <h1>INVOICE</h1>
+      <p style="margin-top:6px;"><strong>Invoice Date:</strong> 28 March 2026</p>
+      <p><strong>Due Date:</strong> 27 April 2026</p>
+      <div class="badge">Monthly Recurring</div>
+    </div>
+  </div>
+
+  <!-- META: FROM / BILL TO / DATES -->
+  <div class="meta-row">
+    <div class="meta-box">
+      <h4>Billed To</h4>
+      <p class="org-name">The Divisional Forest Officer</p>
+      <p>Nandanvan Jungle Safari, Nava Raipur</p>
+      <p>Sector 39, Khanduwa, Atal Nagar</p>
+      <p>Nava Raipur, Chhattisgarh — 493 661</p>
+      <p style="margin-top:4px; font-size:10px; color:#71717a;">Ministry of Forest, Government of Chhattisgarh</p>
+    </div>
+
+    <div class="meta-box">
+      <h4>Service Period</h4>
+      <div class="detail-row"><span class="detail-label">Period</span><span class="detail-val">1 April 2026 – 30 April 2026</span></div>
+      <div class="detail-row"><span class="detail-label">Project</span><span class="detail-val">Wildlife Sanctuary Mgmt. System</span></div>
+      <div class="detail-row"><span class="detail-label">Currency</span><span class="detail-val">Indian Rupee (INR) · USD@₹94.86</span></div>
+      <div class="detail-row"><span class="detail-label">Payment Terms</span><span class="detail-val">Net 30 days</span></div>
+    </div>
+
+    <div class="meta-box">
+      <h4>System Overview</h4>
+      <div class="detail-row"><span class="detail-label">Platform</span><span class="detail-val">Web + Android Mobile + Desktop App</span></div>
+      <div class="detail-row"><span class="detail-label">User Roles</span><span class="detail-val">Keeper · Vet · Forest Officer · Admin</span></div>
+      <div class="detail-row"><span class="detail-label">Daily Users</span><span class="detail-val">~200 staff</span></div>
+      <div class="detail-row"><span class="detail-label">Voice Logs/day</span><span class="detail-val">~1,500 recordings</span></div>
+      <div class="detail-row"><span class="detail-label">Languages</span><span class="detail-val">Hindi · Chhattisgarhi · English</span></div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- USAGE SUMMARY CARDS -->
+  <div class="section-title">Monthly Usage Estimates</div>
+  <div class="usage-grid">
+    <div class="usage-card">
+      <div class="u-val">200</div>
+      <div class="u-label">Daily Active Users across all roles</div>
+    </div>
+    <div class="usage-card">
+      <div class="u-val">1,500</div>
+      <div class="u-label">Voice log recordings per day (AM + PM shifts)</div>
+    </div>
+    <div class="usage-card">
+      <div class="u-val">~67 GB</div>
+      <div class="u-label">Audio storage added per month (avg 1.5 MB/recording)</div>
+    </div>
+    <div class="usage-card">
+      <div class="u-val">45,000</div>
+      <div class="u-label">AI-assisted form submissions per month</div>
+    </div>
+  </div>
+
+  <!-- LINE ITEMS TABLE -->
+  <div class="section-title">Service Line Items — April 2026</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:24px;">#</th>
+        <th>Service</th>
+        <th style="width:100px; text-align:right;">Monthly Cost</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td class="td-num">1</td>
+        <td><div class="td-service">Software Development</div></td>
+        <td class="td-amount"><span class="free-tag">₹ 0</span></td>
+      </tr>
+
+      <tr>
+        <td class="td-num">2</td>
+        <td><div class="td-service">Render — Professional Plan (Backend Server)</div></td>
+        <td class="td-amount">₹ 1,802</td>
+      </tr>
+
+      <tr>
+        <td class="td-num">3</td>
+        <td><div class="td-service">Vercel — Pro Plan (Web App Hosting)</div></td>
+        <td class="td-amount">₹ 1,897</td>
+      </tr>
+
+      <tr>
+        <td class="td-num">4</td>
+        <td><div class="td-service">Firebase — Blaze Plan (Database, Auth, Audio Storage)</div></td>
+        <td class="td-amount">~ ₹ 1,260</td>
+      </tr>
+
+      <tr>
+        <td class="td-num">5</td>
+        <td><div class="td-service">Android On-Device STT — Primary (Hindi / Chhattisgarhi, ~80% of sessions)</div></td>
+        <td class="td-amount"><span class="free-tag">₹ 0</span></td>
+      </tr>
+
+      <tr>
+        <td class="td-num">6</td>
+        <td><div class="td-service">Sarvam AI — Saaras v2 STT + Translation, Fallback (~20% low-confidence sessions @ ₹30/hr · 312 hrs/month)</div></td>
+        <td class="td-amount">~ ₹ 9,360</td>
+      </tr>
+
+      <tr>
+        <td class="td-num">7</td>
+        <td><div class="td-service">OpenAI — GPT-4o mini (Translation + AI Form Filling)</div></td>
+        <td class="td-amount">~ ₹ 2,560</td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <!-- TOTALS -->
+  <div class="totals-wrap">
+    <div class="totals-box">
+      <div class="totals-row">
+        <span class="t-label">Subtotal</span>
+        <span class="t-val">₹ 16,879</span>
+      </div>
+      <div class="totals-row gst">
+        <span class="t-label">GST @ 18% (IGST / CGST+SGST)</span>
+        <span class="t-val">₹ 3,038</span>
+      </div>
+      <div class="totals-row grand">
+        <span class="t-label">GRAND TOTAL DUE</span>
+        <span class="t-val">₹ 19,917</span>
+      </div>
+    </div>
+  </div>
+  <div class="annual-note">
+    Annual contract value (×12 months): <strong>₹ 2,39,004 / year</strong> &nbsp;|&nbsp; excl. GST: <strong>₹ 2,02,548 / year</strong>
+  </div>
+
+  <hr class="divider" style="margin-top:16px;"/>
+
+  <!-- BOTTOM GRID: BANK + NOTES -->
+  <div class="bottom-grid">
+
+    <div class="info-box">
+      <h4>Bank Details</h4>
+      <div class="bank-row"><span>Account Name</span><span>Orbis Systems</span></div>
+      <div class="bank-row"><span>Account No.</span><span>XXXX XXXX XXXX</span></div>
+      <div class="bank-row"><span>Bank</span><span>State Bank of India</span></div>
+      <div class="bank-row"><span>Branch</span><span>Raipur Main Branch</span></div>
+      <div class="bank-row"><span>IFSC</span><span>SBIN0XXXXXX</span></div>
+      <div class="bank-row"><span>UPI</span><span>orbissystems@sbi</span></div>
+    </div>
+
+    <div class="info-box">
+      <h4>Terms &amp; Notes</h4>
+      <ul>
+        <li>This is a <strong>monthly recurring subscription</strong> invoice.</li>
+        <li>Firebase and GPT-4o mini costs are estimates; actuals may vary slightly and receipts will be shared at month end.</li>
+        <li>All USD-denominated services converted at ₹94.86/USD on invoice date.</li>
+        <li>Payment terms: Net 30 days from invoice date.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <p>Orbis Systems · Raipur, Chhattisgarh</p>
+      <p style="margin-top:3px;">info@orbissystems.co.in &nbsp;|&nbsp; +91 86880 34099 &nbsp;|&nbsp; GSTIN: [YOUR GSTIN]</p>
+    </div>
+    <div class="sign-area">
+      <p>Authorized Signatory</p>
+      <div class="sign-name">Orbis Systems</div>
+      <p style="margin-top:2px;">Director / Authorized Representative</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- PRINT BUTTON (hidden on print) -->
+<div class="no-print" style="text-align:center; padding:16px;">
+  <button onclick="window.print()" style="background:#7c3aed; color:#fff; border:none; padding:10px 28px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; font-family:Inter,sans-serif;">
+    Save as PDF / Print
+  </button>
+  <p style="font-size:11px; color:#71717a; margin-top:8px;">Click above → Print → Save as PDF</p>
+</div>
+
+</body>
+</html>
