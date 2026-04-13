@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proposed Deliverables Report — Orbis Systems | Nandanvan Jungle Safari</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f5;
+      color: #18181b;
+      font-size: 13px;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      background: #fff;
+      padding: 14mm 14mm 12mm 14mm;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.10);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #7c3aed;
+      margin-bottom: 20px;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 800;
+      color: #7c3aed;
+      letter-spacing: -0.5px;
+    }
+
+    .brand-sub {
+      font-size: 10px;
+      color: #71717a;
+      margin-top: 2px;
+      font-weight: 500;
+    }
+
+    .doc-label {
+      text-align: right;
+    }
+
+    .doc-label h1 {
+      font-size: 24px;
+      font-weight: 800;
+      color: #18181b;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+    }
+
+    .doc-label p {
+      font-size: 11px;
+      color: #52525b;
+      margin-top: 3px;
+    }
+
+    .doc-label .doc-no {
+      font-size: 12px;
+      font-weight: 600;
+      color: #7c3aed;
+    }
+
+    /* ── META ROW ── */
+    .meta-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 16px;
+    }
+
+    .meta-box {
+      flex: 1;
+    }
+
+    .meta-box h4 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 5px;
+    }
+
+    .meta-box p {
+      font-size: 12px;
+      color: #27272a;
+      line-height: 1.7;
+    }
+
+    .meta-box .org-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: #18181b;
+    }
+
+    .meta-box .detail-row {
+      display: flex;
+      gap: 6px;
+      margin-top: 2px;
+    }
+
+    .meta-box .detail-label {
+      font-size: 10px;
+      color: #71717a;
+      min-width: 90px;
+    }
+
+    .meta-box .detail-val {
+      font-size: 10px;
+      color: #27272a;
+      font-weight: 500;
+    }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      font-size: 9px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .badge.green {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .badge.blue {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #e4e4e7;
+      margin: 0 0 18px 0;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 8px;
+    }
+
+    /* ── PROJECT INTRO BOX ── */
+    .intro-box {
+      background: #faf5ff;
+      border: 1px solid #ede9fe;
+      border-left: 4px solid #7c3aed;
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+    }
+
+    .intro-box p {
+      font-size: 11.5px;
+      color: #3f3f46;
+      line-height: 1.7;
+    }
+
+    /* ── STATS GRID ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .stat-card {
+      background: #faf5ff;
+      border: 1px solid #ede9fe;
+      border-radius: 8px;
+      padding: 10px;
+    }
+
+    .stat-card .s-val {
+      font-size: 16px;
+      font-weight: 800;
+      color: #7c3aed;
+    }
+
+    .stat-card .s-label {
+      font-size: 9px;
+      color: #71717a;
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    /* ── DELIVERABLE SECTION ── */
+    .deliverable-block {
+      margin-bottom: 18px;
+    }
+
+    .deliverable-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #7c3aed;
+      color: #fff;
+      padding: 8px 12px;
+      border-radius: 6px 6px 0 0;
+    }
+
+    .deliverable-header .d-num {
+      font-size: 10px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.2);
+      padding: 2px 7px;
+      border-radius: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    .deliverable-header .d-title {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .deliverable-header .d-badge {
+      margin-left: auto;
+      font-size: 8.5px;
+      font-weight: 700;
+      background: rgba(255,255,255,0.18);
+      padding: 2px 8px;
+      border-radius: 12px;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .deliverable-body {
+      border: 1px solid #e4e4e7;
+      border-top: none;
+      border-radius: 0 0 6px 6px;
+      padding: 12px 14px;
+      background: #fff;
+    }
+
+    .deliverable-body ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .deliverable-body ul li {
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      color: #27272a;
+      padding: 4px 0;
+      border-bottom: 1px solid #f4f4f5;
+      line-height: 1.5;
+    }
+
+    .deliverable-body ul li:last-child {
+      border-bottom: none;
+    }
+
+    .deliverable-body ul li::before {
+      content: '—';
+      color: #a78bfa;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .deliverable-body ul li .li-label {
+      font-weight: 600;
+      color: #18181b;
+    }
+
+    /* Sub-category label inside deliverable */
+    .sub-cat {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin: 10px 0 4px 0;
+    }
+
+    .sub-cat:first-child {
+      margin-top: 0;
+    }
+
+    /* ── SCOPE TABLE ── */
+    .scope-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .scope-box {
+      border-radius: 8px;
+      border: 1px solid #e4e4e7;
+      overflow: hidden;
+    }
+
+    .scope-box-header {
+      padding: 8px 12px;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .scope-box-header.in {
+      background: #7c3aed;
+      color: #fff;
+    }
+
+    .scope-box-header.out {
+      background: #f4f4f5;
+      color: #52525b;
+    }
+
+    .scope-box ul {
+      list-style: none;
+      padding: 10px 12px;
+      background: #fff;
+    }
+
+    .scope-box ul li {
+      font-size: 10.5px;
+      color: #27272a;
+      padding: 3px 0;
+      border-bottom: 1px solid #f4f4f5;
+      line-height: 1.5;
+      display: flex;
+      gap: 7px;
+    }
+
+    .scope-box ul li:last-child {
+      border-bottom: none;
+    }
+
+    .scope-box.in-scope ul li::before {
+      content: '✓';
+      color: #16a34a;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .scope-box.out-scope ul li::before {
+      content: '✕';
+      color: #ef4444;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* ── ACCEPTANCE CRITERIA ── */
+    .acceptance-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+
+    .acceptance-table thead th {
+      background: #7c3aed;
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 8px 10px;
+      text-align: left;
+    }
+
+    .acceptance-table tbody tr {
+      border-bottom: 1px solid #f4f4f5;
+    }
+
+    .acceptance-table tbody tr:nth-child(even) {
+      background: #fafafa;
+    }
+
+    .acceptance-table tbody td {
+      padding: 8px 10px;
+      vertical-align: top;
+      color: #27272a;
+      font-size: 10.5px;
+      line-height: 1.5;
+    }
+
+    .acceptance-table .td-area {
+      font-weight: 600;
+      color: #18181b;
+    }
+
+    .acceptance-table .td-status {
+      text-align: center;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 8.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+
+    .chip.delivered { background: #dcfce7; color: #16a34a; }
+    .chip.in-progress { background: #fef9c3; color: #ca8a04; }
+    .chip.planned { background: #ede9fe; color: #6d28d9; }
+
+    /* ── BOTTOM GRID ── */
+    .bottom-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .info-box {
+      background: #fafafa;
+      border: 1px solid #e4e4e7;
+      border-radius: 8px;
+      padding: 12px;
+    }
+
+    .info-box h4 {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #7c3aed;
+      margin-bottom: 7px;
+    }
+
+    .info-box p, .info-box li {
+      font-size: 10px;
+      color: #52525b;
+      line-height: 1.7;
+    }
+
+    .info-box ul {
+      padding-left: 14px;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #7c3aed;
+      padding-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer p {
+      font-size: 9px;
+      color: #a1a1aa;
+    }
+
+    .footer .sign-area {
+      text-align: right;
+    }
+
+    .footer .sign-area p {
+      font-size: 9px;
+      color: #52525b;
+    }
+
+    .footer .sign-area .sign-name {
+      font-size: 11px;
+      font-weight: 700;
+      color: #7c3aed;
+      margin-top: 20px;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        padding: 12mm 14mm;
+      }
+      .no-print { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div>
+      <div class="brand-name">Orbis Systems</div>
+      <div class="brand-sub">Software · AI · Digital Infrastructure</div>
+      <div class="brand-sub" style="margin-top:6px;">Raipur, Chhattisgarh · info@orbissystems.co.in · +91 86880 34099</div>
+      <div class="brand-sub">GSTIN: [YOUR GSTIN] &nbsp;|&nbsp; PAN: [YOUR PAN]</div>
+    </div>
+    <div class="doc-label">
+      <h1>PROPOSED<br>DELIVERABLES</h1>
+      <p style="margin-top:6px;"><strong>Date:</strong> 13 April 2026</p>
+      <p><strong>Ref No.:</strong> OBS-DEL-2026-001</p>
+      <div class="badge">Formal Proposal</div>
+    </div>
+  </div>
+
+  <!-- META: PREPARED FOR / PROJECT / VALIDITY -->
+  <div class="meta-row">
+    <div class="meta-box">
+      <h4>Prepared For</h4>
+      <p class="org-name">The Divisional Forest Officer</p>
+      <p>Nandanvan Jungle Safari, Nava Raipur</p>
+      <p>Sector 39, Khanduwa, Atal Nagar</p>
+      <p>Nava Raipur, Chhattisgarh — 493 661</p>
+      <p style="margin-top:4px; font-size:10px; color:#71717a;">Ministry of Forest, Government of Chhattisgarh</p>
+    </div>
+
+    <div class="meta-box">
+      <h4>Project Details</h4>
+      <div class="detail-row"><span class="detail-label">Project Name</span><span class="detail-val">Wildlife Sanctuary Mgmt. System</span></div>
+      <div class="detail-row"><span class="detail-label">Project Code</span><span class="detail-val">OBS-JSCG-2026</span></div>
+      <div class="detail-row"><span class="detail-label">Prepared By</span><span class="detail-val">Orbis Systems, Raipur</span></div>
+      <div class="detail-row"><span class="detail-label">Proposal Valid</span><span class="detail-val">30 days from issue date</span></div>
+    </div>
+
+    <div class="meta-box">
+      <h4>System Scope</h4>
+      <div class="detail-row"><span class="detail-label">Platform</span><span class="detail-val">Web App + Android Mobile App</span></div>
+      <div class="detail-row"><span class="detail-label">User Roles</span><span class="detail-val">Keeper · Vet · Forest Officer · Admin</span></div>
+      <div class="detail-row"><span class="detail-label">Target Users</span><span class="detail-val">~200 daily active staff</span></div>
+      <div class="detail-row"><span class="detail-label">Languages</span><span class="detail-val">Hindi · Chhattisgarhi · English</span></div>
+      <div class="detail-row"><span class="detail-label">AI Features</span><span class="detail-val">Voice-to-Text · Structured Extraction</span></div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- PROJECT INTRO -->
+  <div class="intro-box">
+    <p>
+      Orbis Systems proposes to design, develop, and deploy a comprehensive <strong>AI-powered Zoo & Wildlife Sanctuary Management System</strong> for Nandanvan Jungle Safari, Nava Raipur. The system replaces manual paper-based logs with a modern digital platform — enabling zookeepers, veterinary doctors, forest officers, and administrators to operate with real-time data, voice-enabled reporting in Hindi and Chhattisgarhi, and AI-assisted health monitoring. All deliverables listed in this document are included in the agreed project scope.
+    </p>
+  </div>
+
+  <!-- STATS CARDS -->
+  <div class="section-title">At a Glance — System Capacity</div>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="s-val">4</div>
+      <div class="s-label">Distinct role-based dashboards</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">200+</div>
+      <div class="s-label">Daily active staff users supported</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">1,500</div>
+      <div class="s-label">Voice log submissions per day</div>
+    </div>
+    <div class="stat-card">
+      <div class="s-val">3</div>
+      <div class="s-label">Languages: Hindi, Chhattisgarhi, English</div>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ============================================================ -->
+  <!-- DELIVERABLES SECTION -->
+  <!-- ============================================================ -->
+  <div class="section-title">Complete List of Deliverables</div>
+
+  <!-- D1: Web Application Frontend -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-01</span>
+      <span class="d-title">Web Application — Frontend (React + TypeScript)</span>
+      <span class="d-badge">Core Platform</span>
+    </div>
+    <div class="deliverable-body">
+      <div class="sub-cat">UI & Application Shell</div>
+      <ul>
+        <li><span class="li-label">Responsive Web App</span> — Full-featured web application built with React 18 and TypeScript, accessible from any modern browser on desktop and tablet devices.</li>
+        <li><span class="li-label">Role-Based Routing</span> — Secure, role-aware routing system that directs each user to their dedicated dashboard immediately after login, with no access to unauthorized sections.</li>
+        <li><span class="li-label">Component Library</span> — Reusable UI component library built with Tailwind CSS and Radix UI primitives — including buttons, modals, forms, tables, badges, and alert banners.</li>
+        <li><span class="li-label">Framer Motion Animations</span> — Subtle, performant micro-animations on transitions, modals, and alert states for a polished, professional user experience.</li>
+        <li><span class="li-label">Mobile-Responsive Layout</span> — Fully responsive design optimized for field workers operating on Android tablets and mobile devices in outdoor conditions.</li>
+      </ul>
+      <div class="sub-cat">Authentication & Access Control</div>
+      <ul>
+        <li><span class="li-label">Firebase Authentication</span> — Secure email/password login integrated with Firebase Auth, with persistent sessions and auto-logout on inactivity.</li>
+        <li><span class="li-label">Role Assignment</span> — Admin-controlled role assignment (Zookeeper, Vet, Forest Officer, Administrator) that determines dashboard access and permissions.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D2: Role-Based Dashboards -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-02</span>
+      <span class="d-title">Role-Based Dashboards — 4 Distinct User Interfaces</span>
+      <span class="d-badge">Core Platform</span>
+    </div>
+    <div class="deliverable-body">
+      <div class="sub-cat">Zookeeper Dashboard</div>
+      <ul>
+        <li><span class="li-label">Daily Animal Log Submission</span> — Interface to submit morning (AM) and evening (PM) observation logs per animal, covering feeding status, health, behavior, and reproductive observations.</li>
+        <li><span class="li-label">Voice-to-Text Log Entry</span> — One-tap audio recording button that captures observations in Hindi or Chhattisgarhi and auto-fills the structured log form via AI transcription.</li>
+        <li><span class="li-label">Photo & Media Uploads</span> — Ability to attach photos and visual evidence directly to daily animal reports for veterinary review.</li>
+        <li><span class="li-label">Log Deadline Reminders</span> — Automated browser push notifications at 11:00 AM and 4:00 PM reminding keepers to submit pending logs, with recurring alerts for overdue submissions.</li>
+        <li><span class="li-label">Per-Animal Log Status</span> — Visual alarm indicators showing which animals have pending or overdue AM/PM logs for the current day.</li>
+        <li><span class="li-label">Emergency SOS Button</span> — Single-tap emergency alert that instantly broadcasts a push notification to all active staff across all roles for immediate incident response.</li>
+      </ul>
+      <div class="sub-cat">Veterinary Doctor Dashboard</div>
+      <ul>
+        <li><span class="li-label">Animal Medical History</span> — Dedicated hospital records view showing each animal's complete medical history, past treatments, and health event timeline.</li>
+        <li><span class="li-label">Medication Tracker</span> — Interface to prescribe medications, record dosages, track ongoing treatment schedules, and mark treatments as complete.</li>
+        <li><span class="li-label">AI-Structured Health Reports</span> — Access to AI-processed health reports escalated from Zookeeper logs, with key health metrics automatically extracted and highlighted.</li>
+        <li><span class="li-label">Escalated Alert Queue</span> — Priority queue of health alerts flagged by the AI system for urgent veterinary attention.</li>
+      </ul>
+      <div class="sub-cat">Forest Officer Dashboard</div>
+      <ul>
+        <li><span class="li-label">Cost Analytics Dashboard</span> — High-level statistical overview of feeding costs, species-wise expenditure breakdowns, and monthly cost trend charts.</li>
+        <li><span class="li-label">Inventory Management</span> — Stock tracking interface for meat, vegetables, grains, and critical zoo supplies with low-stock alert indicators.</li>
+        <li><span class="li-label">CSV & PDF Export</span> — One-click export of monthly reports, feeding cost summaries, and inventory records in CSV and PDF formats for official government record-keeping.</li>
+      </ul>
+      <div class="sub-cat">Administrator Dashboard</div>
+      <ul>
+        <li><span class="li-label">System Overview Dashboard</span> — Bird's-eye view of zoological statistics including total animal count, active health alerts, species distribution, and daily log completion rates.</li>
+        <li><span class="li-label">Staff Management</span> — Add, edit, deactivate, or remove staff accounts and assign or change user roles across the system.</li>
+        <li><span class="li-label">Animal Profile Management</span> — Create and manage individual animal profiles including species, enclosure assignment, age, and historical health records.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D3: Backend API -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-03</span>
+      <span class="d-title">Backend API Server (Flask / Python)</span>
+      <span class="d-badge">Infrastructure</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">RESTful API Server</span> — Production-grade Flask API server serving all frontend data requests, handling authentication, file uploads, and AI pipeline orchestration.</li>
+        <li><span class="li-label">Gunicorn WSGI Deployment</span> — API served via Gunicorn for production-level concurrency, deployed on Render cloud infrastructure for 24/7 uptime.</li>
+        <li><span class="li-label">Audio Ingestion Endpoint</span> — Dedicated API endpoint to receive voice recordings from the frontend, forward to the speech-to-text pipeline, and return structured transcripts.</li>
+        <li><span class="li-label">AI Data Structuring Pipeline</span> — Backend logic that passes transcribed text to the Groq LLM (GPT-4o mini) to extract structured health metrics — feeding status, behavior flags, medical keywords — and save them to Firestore in a standardized JSON schema.</li>
+        <li><span class="li-label">Pydantic Data Models</span> — Strict data validation models ensuring all incoming and outgoing data conforms to the defined schema, preventing corrupt records from entering the database.</li>
+        <li><span class="li-label">Emergency Broadcast Handler</span> — API endpoint that fans out SOS push notifications to all connected staff via Firebase Cloud Messaging within seconds of trigger.</li>
+        <li><span class="li-label">Export Generation</span> — Server-side PDF and CSV generation endpoints for Forest Officer reporting.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D4: AI & Voice Features -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-04</span>
+      <span class="d-title">AI & Voice Intelligence Features</span>
+      <span class="d-badge">AI / ML</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">On-Device Speech-to-Text (Android)</span> — Primary STT using Android's built-in speech recognition for Hindi and Chhattisgarhi — zero API cost, offline-capable, covering ~80% of sessions.</li>
+        <li><span class="li-label">Sarvam AI — Saaras v2 STT Fallback</span> — Cloud-based fallback STT via Sarvam AI's Saaras v2 model for low-confidence or noisy recordings (~20% of sessions), ensuring near-100% transcription accuracy.</li>
+        <li><span class="li-label">Multilingual Translation</span> — Automatic translation of Hindi/Chhattisgarhi transcripts to English for standardized database storage and veterinary reporting.</li>
+        <li><span class="li-label">AI Form Auto-Fill</span> — LLM-powered extraction that parses free-form voice transcripts and automatically populates structured log form fields — feeding quantity, health notes, behavioral flags, urgency level.</li>
+        <li><span class="li-label">Health Keyword Extraction</span> — Automated detection of medical keywords (e.g., "limping", "not eating", "bleeding") to auto-escalate logs to the Vet's priority queue.</li>
+        <li><span class="li-label">Bilingual UI Toggle</span> — Real-time toggle to switch the entire application interface between English and Hindi without page reload.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D5: Database & Storage -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-05</span>
+      <span class="d-title">Database, Storage & Cloud Infrastructure</span>
+      <span class="d-badge">Infrastructure</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">Google Cloud Firestore Database</span> — NoSQL real-time database for all application data including animal profiles, daily logs, medical records, staff accounts, and inventory — with real-time sync across all connected clients.</li>
+        <li><span class="li-label">Firebase Cloud Storage</span> — Secure cloud storage for all audio recordings and photo uploads attached to daily logs, with organised per-animal file structure.</li>
+        <li><span class="li-label">Cloudinary Media CDN</span> — Media delivery via Cloudinary for optimized image compression and fast load times on mobile field devices.</li>
+        <li><span class="li-label">Firebase Security Rules</span> — Role-level database security rules ensuring each user role can only read/write data within their permitted scope.</li>
+        <li><span class="li-label">Firebase Cloud Messaging (FCM)</span> — Push notification infrastructure for deadline reminders and Emergency SOS broadcasts.</li>
+        <li><span class="li-label">Automated Data Backups</span> — Firestore's built-in daily export functionality configured for disaster recovery and audit trail compliance.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D6: Android Mobile App -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-06</span>
+      <span class="d-title">Android Mobile Application (Field-Ready)</span>
+      <span class="d-badge">Mobile</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">Progressive Web App (PWA)</span> — Mobile-optimized PWA installable on Android devices, providing a near-native app experience without requiring Google Play Store distribution.</li>
+        <li><span class="li-label">On-Device Voice Recording</span> — Native Android microphone integration for voice log recording directly in the field, even in areas with intermittent connectivity.</li>
+        <li><span class="li-label">Touch-Optimized UI</span> — Large tap targets, swipe-friendly navigation, and high-contrast visual design optimized for outdoor sunlight conditions.</li>
+        <li><span class="li-label">Push Notification Support</span> — FCM-powered push alerts for log deadlines (11 AM / 4 PM) and emergency SOS events delivered directly to keeper and vet devices.</li>
+        <li><span class="li-label">Camera Integration</span> — Direct camera access for attaching photos to animal health reports without leaving the application.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D7: Deployment & DevOps -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-07</span>
+      <span class="d-title">Deployment, Hosting & DevOps</span>
+      <span class="d-badge">Deployment</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">Frontend Deployment — Vercel</span> — Web application hosted on Vercel's global CDN with automatic HTTPS, custom domain configuration, and zero-downtime deployments.</li>
+        <li><span class="li-label">Backend Deployment — Render</span> — Flask API server deployed on Render's Web Service with auto-scaling, health checks, and automatic restarts on failure.</li>
+        <li><span class="li-label">Environment Configuration</span> — Secure environment variable management for all API keys (Groq, Sarvam AI, Cloudinary, Firebase) using platform-native secret stores.</li>
+        <li><span class="li-label">CI/CD Pipeline</span> — Automated build and deployment pipeline triggered on every code push, ensuring rapid and reliable updates to the live system.</li>
+        <li><span class="li-label">Custom Domain Setup</span> — Assistance with custom domain (e.g., junglesafari.orbissystems.co.in) DNS configuration and SSL certificate provisioning.</li>
+        <li><span class="li-label">Deployment Documentation</span> — Complete step-by-step deployment guide (DEPLOYMENT_GUIDE.md) covering backend, frontend, and environment setup for the client's internal IT team.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- D8: Documentation & Handover -->
+  <div class="deliverable-block">
+    <div class="deliverable-header">
+      <span class="d-num">D-08</span>
+      <span class="d-title">Documentation, Training & Handover</span>
+      <span class="d-badge">Support</span>
+    </div>
+    <div class="deliverable-body">
+      <ul>
+        <li><span class="li-label">Technical Documentation</span> — Complete system README, API endpoint reference, data schema documentation, and architecture diagram for internal IT staff.</li>
+        <li><span class="li-label">User Manuals</span> — Role-specific user guides (in English and Hindi) for Zookeepers, Vet Doctors, Forest Officers, and Administrators.</li>
+        <li><span class="li-label">Onboarding & Training Session</span> — Live or recorded walkthrough session with key staff members to demonstrate all features and answer operational questions.</li>
+        <li><span class="li-label">Source Code Handover</span> — Full, commented source code repository transferred to the client upon project completion and final payment.</li>
+        <li><span class="li-label">30-Day Post-Launch Support</span> — One month of bug-fix support post-deployment at no additional charge, covering any issues arising from production use.</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- SCOPE IN / OUT -->
+  <div class="section-title">Scope Boundary</div>
+  <div class="scope-grid">
+    <div class="scope-box in-scope">
+      <div class="scope-box-header in">Included in Scope</div>
+      <ul>
+        <li>Web application (React + TypeScript frontend)</li>
+        <li>Flask REST API backend with Gunicorn</li>
+        <li>Firebase Firestore database & Auth</li>
+        <li>Voice-to-text pipeline (On-device + Sarvam AI)</li>
+        <li>AI form auto-fill via Groq / GPT-4o mini</li>
+        <li>Android PWA (installable mobile app)</li>
+        <li>4 role-based dashboards</li>
+        <li>Push notifications (FCM) — SOS + reminders</li>
+        <li>CSV & PDF export for Forest Officer</li>
+        <li>Bilingual UI (English + Hindi)</li>
+        <li>Cloud deployment (Vercel + Render)</li>
+        <li>30-day post-launch bug-fix support</li>
+      </ul>
+    </div>
+    <div class="scope-box out-scope">
+      <div class="scope-box-header out">Excluded from Scope</div>
+      <ul>
+        <li>Native iOS or App Store deployment</li>
+        <li>Offline-first / local database sync</li>
+        <li>Hardware (scanners, RFID, IoT sensors)</li>
+        <li>Integration with state government ERP systems</li>
+        <li>Custom domain purchase / renewal fees</li>
+        <li>Third-party API costs after go-live (billed separately)</li>
+        <li>Data migration from existing paper records</li>
+        <li>On-site server infrastructure</li>
+        <li>Extended support beyond 30-day warranty</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider"/>
+
+  <!-- ACCEPTANCE CRITERIA -->
+  <div class="section-title">Acceptance Criteria by Deliverable</div>
+  <table class="acceptance-table">
+    <thead>
+      <tr>
+        <th style="width:30px;">#</th>
+        <th>Deliverable Area</th>
+        <th>Acceptance Criterion</th>
+        <th style="width:80px; text-align:center;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="td-area">Login & Role Routing</td>
+        <td>All 4 roles can log in and land on their correct dashboard. Unauthorized routes are blocked.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td class="td-area">Voice Log (Zookeeper)</td>
+        <td>Voice recording in Hindi/Chhattisgarhi transcribes and auto-fills the log form within 5 seconds with ≥ 90% accuracy.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td class="td-area">AM/PM Log Alarms</td>
+        <td>Push notifications fire at 11:00 AM and 4:00 PM daily. Animals with missing logs display a visible alert indicator.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td class="td-area">Emergency SOS</td>
+        <td>SOS tap delivers a push notification to all active staff across all roles within 10 seconds.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td class="td-area">Vet Medical Records</td>
+        <td>Vet can view per-animal history, prescribe medications, and see AI-escalated health alerts in the priority queue.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td class="td-area">CSV / PDF Export</td>
+        <td>Forest Officer can export a monthly feeding cost or inventory report as both .CSV and .PDF in under 30 seconds.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td class="td-area">Admin — Staff Management</td>
+        <td>Admin can add/remove staff, assign roles, and changes take effect immediately without requiring logout.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td class="td-area">Android PWA Install</td>
+        <td>Application is installable as a PWA on Android and functions correctly on field devices (screen sizes ≥ 5").</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td class="td-area">Bilingual Toggle</td>
+        <td>Switching language between English and Hindi updates all UI text in real-time without data loss or page reload.</td>
+        <td class="td-status"><span class="chip delivered">Delivered</span></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td class="td-area">Production Deployment</td>
+        <td>System live at production URL with HTTPS, zero-downtime, accessible to all 200 staff concurrently.</td>
+        <td class="td-status"><span class="chip planned">Planned</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <hr class="divider"/>
+
+  <!-- BOTTOM GRID: NOTES + CONTACT -->
+  <div class="bottom-grid">
+
+    <div class="info-box">
+      <h4>Important Notes</h4>
+      <ul>
+        <li>This document outlines all deliverables agreed upon as part of the initial project contract between Orbis Systems and Nandanvan Jungle Safari.</li>
+        <li>Any additions or modifications to scope beyond what is listed here will require a formal <strong>Change Request (CR)</strong> and may affect timelines and pricing.</li>
+        <li>Third-party API costs (Sarvam AI, Firebase usage, Render hosting) are <strong>operational expenses</strong> billed monthly as per the separate invoice and are not part of the development deliverables listed here.</li>
+        <li>All deliverables are subject to final client acceptance testing before the 30-day support warranty period begins.</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h4>Contact & Escalation</h4>
+      <p style="font-weight:600; color:#18181b; margin-bottom:4px;">Orbis Systems</p>
+      <p>Raipur, Chhattisgarh</p>
+      <p style="margin-top:6px;">Email: &nbsp;<strong>info@orbissystems.co.in</strong></p>
+      <p>Phone: &nbsp;<strong>+91 86880 34099</strong></p>
+      <p style="margin-top:6px; font-size:9.5px; color:#71717a;">For project queries, scope clarifications, or change requests — reach out with the project reference code <strong>OBS-JSCG-2026</strong> in the subject line.</p>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <p>Orbis Systems · Raipur, Chhattisgarh</p>
+      <p style="margin-top:3px;">info@orbissystems.co.in &nbsp;|&nbsp; +91 86880 34099 &nbsp;|&nbsp; GSTIN: [YOUR GSTIN]</p>
+      <p style="margin-top:3px;">Ref: OBS-DEL-2026-001 &nbsp;|&nbsp; Prepared: 13 April 2026</p>
+    </div>
+    <div class="sign-area">
+      <p>Authorized Signatory</p>
+      <div class="sign-name">Orbis Systems</div>
+      <p style="margin-top:2px;">Director / Authorized Representative</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- PRINT BUTTON (hidden on print) -->
+<div class="no-print" style="text-align:center; padding:16px;">
+  <button onclick="window.print()" style="background:#7c3aed; color:#fff; border:none; padding:10px 28px; border-radius:6px; font-size:13px; font-weight:600; cursor:pointer; font-family:Inter,sans-serif;">
+    Save as PDF / Print
+  </button>
+  <p style="font-size:11px; color:#71717a; margin-top:8px;">Click above → Print → Save as PDF</p>
+</div>
+
+</body>
+</html>
