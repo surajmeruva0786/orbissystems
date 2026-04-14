@@ -1,0 +1,31 @@
+**Clareo — Project Description**
+
+Clareo is a premium marketplace platform that connects individuals seeking mental health support with verified, licensed psychologists. Modeled after Fiverr's service-based marketplace structure, Clareo allows psychologists to list their specializations as structured service offerings — therapy sessions, assessments, consultations, workshops, and written evaluations — which clients can browse, compare, and book directly.
+
+**The Problem**
+
+Finding the right psychologist is frustrating. Clients rely on word-of-mouth, outdated directories, or trial-and-error with therapists who may not match their needs. Psychologists, especially independent practitioners, lack a professional channel to showcase their expertise, set their own pricing, and attract clients beyond local referrals. There's no platform that treats therapy services with the same discoverability and transparency that platforms like Fiverr brought to freelance services.
+
+**How Clareo Works**
+
+Psychologists create verified profiles with their credentials, specializations (anxiety, trauma, couples therapy, child psychology, career counseling, etc.), languages spoken, and session formats (video, audio, chat, in-person). They then list discrete services — called "offerings" — each with a clear scope, duration, pricing tier, and expected outcomes. Clients search, filter by need, read reviews, compare pricing, and book sessions seamlessly.
+
+**For Psychologists:** A professional storefront to manage their independent practice — set availability, define service packages (single session, 4-session bundles, intensive programs), manage client communication, collect payments, and build a reputation through verified reviews.
+
+**For Clients:** A clean, stigma-free experience to find help. Search by issue, budget, language, or session format. Transparent pricing with no surprises. Secure messaging before booking to ensure fit. Post-session reviews to guide future clients.
+
+**Revenue Model**
+
+Clareo operates on a commission-based marketplace model. The platform takes a percentage-based service fee on each completed transaction. Additional revenue streams include featured profile placements for psychologists, premium subscription tiers offering analytics and priority visibility, and enterprise packages for organizations seeking employee mental health services.
+
+**Key Differentiators**
+
+Clareo is not a generic therapy app or a video-calling tool. It is a marketplace — psychologists are independent service providers, not employees. Every listed professional is credential-verified through a rigorous onboarding process. The platform's design language communicates trust and sophistication, not clinical sterility. Session data and communications are end-to-end encrypted. The marketplace structure means pricing is transparent and competitive, driven by the psychologists themselves rather than a flat subscription model.
+
+**Target Market**
+
+Primary: urban professionals aged 22–45 seeking accessible, flexible mental health support without the friction of traditional referral pipelines. Secondary: psychologists and therapists in private practice looking to expand their client base beyond geography.
+
+**Product Vision**
+
+Clareo is built as a vertical SaaS marketplace within the Orbis Systems portfolio, designed for scale and acquisition. The exit thesis targets acquirers in the digital health and wellness space — companies like BetterHelp, Headspace, or larger health-tech platforms looking to add a marketplace layer to their offerings. The goal is to build a defensible network of verified practitioners and a loyal client base within a 2–3 year horizon.
