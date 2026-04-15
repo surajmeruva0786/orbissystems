@@ -40,7 +40,8 @@
       "Bash(node -p \"require\\(''./node_modules/expo/bundledNativeModules.json''\\)[''expo-linking'']\")",
       "Bash(grep -r \"ClickSpark\\\\|click-spark\" Z:orbissystemsjungle-safari-cgfrontendsrc --include=*.tsx --include=*.ts --include=*.jsx --include=*.js)",
       "WebFetch(domain:www.sarvam.ai)",
-      "WebFetch(domain:docs.sarvam.ai)"
+      "WebFetch(domain:docs.sarvam.ai)",
+      "WebSearch"
     ]
   }
 }
